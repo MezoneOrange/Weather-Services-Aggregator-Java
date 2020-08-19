@@ -10,32 +10,32 @@ public class TestMain {
 
     public static void checkOpenWeatherApi() {
         WeatherApi map = new OpenWeatherMap();
-        map.getResponceCode();
+        map.getResponseCode();
         map.getWeatherForecast("Moscow");
     }
 
     public static void checkYandexWeatherApi() {
         WeatherApi map = new YandexWeatherApi();
-        map.getResponceCode();
+        map.getResponseCode();
         map.getWeatherForecast("Moscow");
     }
 
     public static void checkGismeteoWeatherApi() {
         WeatherApi map = new GismeteoWeatherApi();
-        map.getResponceCode();
+        map.getResponseCode();
         map.getWeatherForecast("Moscow");
     }
 
     public static void checkWeatherStackApi() {
         WeatherApi map = new WeatherStackApi();
-        map.getResponceCode();
+        map.getResponseCode();
         map.getWeatherForecast("Moscow");
     }
 
     public static void checkWeatherForecast() {
         WeatherForecast forecast = new WeatherForecast();
         forecast.getListOfServices();
-        forecast.getForecast();
+        forecast.getForecast("Moscow");
     }
 
 }
