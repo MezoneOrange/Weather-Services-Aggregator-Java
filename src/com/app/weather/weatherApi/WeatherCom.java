@@ -10,6 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 public class WeatherCom extends WeatherApi {
 
@@ -41,7 +42,7 @@ public class WeatherCom extends WeatherApi {
         int responseCode;
         StringBuilder response = new StringBuilder();
         try {
-            URL obj = new URL(String.format(url, apiKey, URLEncoder.encode(city, "UTF-8")));
+            URL obj = new URL(String.format(url, apiKey, URLEncoder.encode(city, StandardCharsets.UTF_8)));
             HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
             responseCode = connection.getResponseCode();
 

@@ -10,13 +10,14 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 public class OpenWeatherMap extends WeatherApi {
 
 
     public OpenWeatherMap() {
         NAME = "openweathermap.org";
-        url = "http://api.openweathermap.org/data/2.5/weather?q=%s&lang=ru&units=metric&APPID=%s";
+        url = "http://api.openweathermap.org/data/2.5/weather?APPID=%s&q=%s&lang=ru&units=metric";
         apiKey = "4551bc6d8820b97c86e67b7fa6186691";
     }
 
@@ -24,7 +25,7 @@ public class OpenWeatherMap extends WeatherApi {
     public ForecastObject getResponseCode() {
         int responseCode;
         try {
-            URL obj = new URL(String.format(url, "London", apiKey));
+            URL obj = new URL(String.format(url, apiKey, "London"));
             HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
             responseCode = connection.getResponseCode();
         } catch (MalformedURLException e) {
@@ -40,15 +41,15 @@ public class OpenWeatherMap extends WeatherApi {
     /**
      * also set longitudes and latitudes by requested
      *
-     * @param city
-     * @return
+     * @param city for query
+     * @return result of request
      */
     @Override
     public ForecastObject getWeatherForecast(String city) {
         int responseCode;
         StringBuilder response = new StringBuilder();
         try {
-            URL obj = new URL(String.format(url, URLEncoder.encode(city, "UTF-8"), apiKey));
+            URL obj = new URL(String.format(url, apiKey, URLEncoder.encode(city, StandardCharsets.UTF_8)));
             HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
             responseCode = connection.getResponseCode();
 

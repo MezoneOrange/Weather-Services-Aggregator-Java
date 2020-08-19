@@ -38,7 +38,7 @@ public class TestMain {
         List<ForecastObject> responses = forecast.getListOfServices();
         responses.forEach(System.out::println);
 
-        List<ForecastObject> weathers = forecast.getForecast("Екатеринбург");
+        List<ForecastObject> weathers = forecast.getForecast("Ревда");
         weathers.forEach(System.out::println);
     }
 

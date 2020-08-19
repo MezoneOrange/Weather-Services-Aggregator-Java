@@ -55,4 +55,24 @@ public class ForecastObject {
         result.append("--------------------\n");
         return result.toString();
     }
+
+    public String getRESOURCE() {
+        return RESOURCE;
+    }
+
+    public int getRESPONSE() {
+        return RESPONSE;
+    }
+
+    public String getCITY() {
+        return CITY;
+    }
+
+    public double getTEMPERATURE() {
+        return TEMPERATURE;
+    }
+
+    public String getWEATHER() {
+        return WEATHER;
+    }
 }
