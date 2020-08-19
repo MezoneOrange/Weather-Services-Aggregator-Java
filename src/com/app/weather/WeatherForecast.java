@@ -18,6 +18,7 @@ public class WeatherForecast {
         resources.add(new OpenWeatherMap());
         resources.add(new WeatherStackApi());
         resources.add(new WeatherCom());
+        resources.add(new WeatherBit());
     }
 
     /**

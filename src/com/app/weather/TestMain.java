@@ -27,6 +27,12 @@ public class TestMain {
         System.out.println(map.getWeatherForecast("Москва"));
     }
 
+    public static void checkWeatherBit() {
+        WeatherApi map = new WeatherBit();
+        System.out.println(map.getResponseCode());
+        System.out.println(map.getWeatherForecast("Москва"));
+    }
+
     public static void checkWeatherForecast() {
         WeatherForecast forecast = new WeatherForecast();
         List<ForecastObject> responses = forecast.getListOfServices();

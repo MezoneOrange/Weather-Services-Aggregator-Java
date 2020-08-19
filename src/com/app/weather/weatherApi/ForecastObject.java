@@ -41,16 +41,18 @@ public class ForecastObject {
 
     @Override
     public String toString() {
-        String result;
+        StringBuilder result = new StringBuilder();
+        result.append("--------------------\n");
         if (CITY == null) {
             if (RESPONSE == 200) {
-                result = String.format("%s response code is %d\n", RESOURCE, RESPONSE);
+                result.append(String.format("|  %s response code is %d\n", RESOURCE, RESPONSE));
             } else {
-                result = String.format("%s response code is %d. Some problems.\n", RESOURCE, RESPONSE);
+                result.append(String.format("|  %s response code is %d. Some problems.\n", RESOURCE, RESPONSE));
             }
         } else {
-            result = String.format("%s\n\n%s %.1f C˚\n%s\n", RESOURCE, CITY, TEMPERATURE, WEATHER);
+            result.append(String.format("|  %s\n|  \n|  %s %.1f C˚\n|  %s\n", RESOURCE, CITY, TEMPERATURE, WEATHER));
         }
-        return result;
+        result.append("--------------------\n");
+        return result.toString();
     }
 }
