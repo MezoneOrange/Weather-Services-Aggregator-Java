@@ -2,16 +2,18 @@ package com.app.weather;
 
 import com.app.weather.weatherApi.*;
 
+import java.util.List;
+
 public class TestMain {
     public static void main(String[] args) {
-
-
+        checkOpenWeatherApi();
+        checkWeatherForecast();
     }
 
     public static void checkOpenWeatherApi() {
         WeatherApi map = new OpenWeatherMap();
-        map.getResponseCode();
-        map.getWeatherForecast("Moscow");
+        System.out.println(map.getResponseCode());
+        System.out.println(map.getWeatherForecast("Moscow"));
     }
 
     public static void checkYandexWeatherApi() {
@@ -34,8 +36,11 @@ public class TestMain {
 
     public static void checkWeatherForecast() {
         WeatherForecast forecast = new WeatherForecast();
-        forecast.getListOfServices();
-        forecast.getForecast("Moscow");
+        List<ForecastObject> responses = forecast.getListOfServices();
+        responses.forEach(System.out::println);
+
+        List<ForecastObject> weathers = forecast.getForecast("Moscow");
+        weathers.forEach(System.out::println);
     }
 
 }
