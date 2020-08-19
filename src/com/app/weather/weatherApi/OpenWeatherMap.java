@@ -9,8 +9,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 
 public class OpenWeatherMap extends WeatherApi {
+
 
     public OpenWeatherMap() {
         NAME = "openweathermap.org";
@@ -22,7 +24,7 @@ public class OpenWeatherMap extends WeatherApi {
     public ForecastObject getResponseCode() {
         int responseCode;
         try {
-            URL obj = new URL(String.format(url, "Лондон", apiKey));
+            URL obj = new URL(String.format(url, "London", apiKey));
             HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
             responseCode = connection.getResponseCode();
         } catch (MalformedURLException e) {
@@ -35,12 +37,18 @@ public class OpenWeatherMap extends WeatherApi {
         return new ForecastObject(NAME, responseCode);
     }
 
+    /**
+     * also set longitudes and latitudes by requested
+     *
+     * @param city
+     * @return
+     */
     @Override
     public ForecastObject getWeatherForecast(String city) {
         int responseCode;
         StringBuilder response = new StringBuilder();
         try {
-            URL obj = new URL(String.format(url, city, apiKey));
+            URL obj = new URL(String.format(url, URLEncoder.encode(city, "UTF-8"), apiKey));
             HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
             responseCode = connection.getResponseCode();
 
@@ -53,6 +61,7 @@ public class OpenWeatherMap extends WeatherApi {
                 }
             }
         } catch (MalformedURLException e) {
+            System.out.println(e.getMessage());
             responseCode = 404;
         } catch (IOException e) {
             System.out.println(e.getMessage());
@@ -61,10 +70,10 @@ public class OpenWeatherMap extends WeatherApi {
 
         if (responseCode != 200) return new ForecastObject(NAME, responseCode);
 
-        JSONObject parsedResponse = null;
-        String responseCity = null;
-        double responseTemperature = -10000.0;
-        String responseWeather = null;
+        JSONObject parsedResponse;
+        String responseCity;
+        double responseTemperature;
+        String responseWeather;
         try {
             parsedResponse = new JSONObject(response.toString());
             responseCity = parsedResponse.getString("name");

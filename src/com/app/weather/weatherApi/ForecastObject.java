@@ -49,7 +49,7 @@ public class ForecastObject {
                 result = String.format("%s response code is %d. Some problems.\n", RESOURCE, RESPONSE);
             }
         } else {
-            result = String.format("%s response code is %d\n\n%s %.1f C˚\n%s\n", RESOURCE, RESPONSE, CITY, TEMPERATURE, WEATHER);
+            result = String.format("%s\n\n%s %.1f C˚\n%s\n", RESOURCE, CITY, TEMPERATURE, WEATHER);
         }
         return result;
     }

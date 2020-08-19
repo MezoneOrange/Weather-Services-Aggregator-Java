@@ -7,31 +7,19 @@ import java.util.List;
 public class TestMain {
     public static void main(String[] args) {
         checkOpenWeatherApi();
-        checkWeatherForecast();
+        checkWeatherStackApi();
     }
 
     public static void checkOpenWeatherApi() {
         WeatherApi map = new OpenWeatherMap();
         System.out.println(map.getResponseCode());
-        System.out.println(map.getWeatherForecast("Moscow"));
-    }
-
-    public static void checkYandexWeatherApi() {
-        WeatherApi map = new YandexWeatherApi();
-        map.getResponseCode();
-        map.getWeatherForecast("Moscow");
-    }
-
-    public static void checkGismeteoWeatherApi() {
-        WeatherApi map = new GismeteoWeatherApi();
-        map.getResponseCode();
-        map.getWeatherForecast("Moscow");
+        System.out.println(map.getWeatherForecast("Москва"));
     }
 
     public static void checkWeatherStackApi() {
         WeatherApi map = new WeatherStackApi();
-        map.getResponseCode();
-        map.getWeatherForecast("Moscow");
+        System.out.println(map.getResponseCode());
+        System.out.println(map.getWeatherForecast("Москва"));
     }
 
     public static void checkWeatherForecast() {

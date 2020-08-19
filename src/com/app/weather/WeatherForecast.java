@@ -39,6 +39,7 @@ public class WeatherForecast {
      * @return List<ForecastObject> which includes weather info from each resource.
      */
     public List<ForecastObject> getForecast(String city) {
+        List<Double> coord = resources.get(0).setLongitudeAndLatitude(city);
         List<ForecastObject> forecast = new ArrayList<>();
         for (WeatherApi resource : resources) {
             forecast.add(resource.getWeatherForecast(city));
