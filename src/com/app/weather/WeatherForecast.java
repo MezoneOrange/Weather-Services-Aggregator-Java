@@ -1,8 +1,6 @@
 package com.app.weather;
 
-import com.app.weather.weatherApi.ForecastObject;
-import com.app.weather.weatherApi.OpenWeatherMap;
-import com.app.weather.weatherApi.WeatherApi;
+import com.app.weather.weatherApi.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +16,8 @@ public class WeatherForecast {
      */
     public WeatherForecast() {
         resources.add(new OpenWeatherMap());
+        resources.add(new WeatherStackApi());
+        resources.add(new WeatherCom());
     }
 
     /**

@@ -25,7 +25,7 @@ import java.util.List;
  *      gets weather forecast by city which was sent.
  */
 public abstract class WeatherApi {
-    protected static String NAME;
+    protected String NAME;
     protected String url;
     protected String apiKey;
 

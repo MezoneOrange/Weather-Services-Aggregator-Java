@@ -11,12 +11,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-public class WeatherStackApi extends WeatherApi {
+public class WeatherCom extends WeatherApi {
 
-    public WeatherStackApi() {
-        NAME = "weatherstack.com";
-        url = "http://api.weatherstack.com/current?access_key=%s&query=%s";
-        apiKey = "876152b1b7b6c6feae10f16c7a964268";
+    public WeatherCom() {
+        NAME = "weatherapi.com";
+        url = "http://api.weatherapi.com/v1/current.json?key=%s&q=%s&lang=ru";
+        apiKey = "342b001f801745c781b164319201908";
     }
 
     @Override
@@ -70,8 +70,8 @@ public class WeatherStackApi extends WeatherApi {
         try {
             parsedResponse = new JSONObject(response.toString());
             responseCity = parsedResponse.getJSONObject("location").getString("name");
-            responseTemperature = parsedResponse.getJSONObject("current").getDouble("temperature");
-            responseWeather = parsedResponse.getJSONObject("current").getJSONArray("weather_descriptions").getString(0);
+            responseTemperature = parsedResponse.getJSONObject("current").getDouble("temp_c");
+            responseWeather = parsedResponse.getJSONObject("current").getJSONObject("condition").getString("text");
         } catch (JSONException e) {
             System.out.println(e.getMessage());
             return  new ForecastObject(NAME, 404);

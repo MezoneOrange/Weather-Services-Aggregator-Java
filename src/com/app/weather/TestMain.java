@@ -6,8 +6,7 @@ import java.util.List;
 
 public class TestMain {
     public static void main(String[] args) {
-        checkOpenWeatherApi();
-        checkWeatherStackApi();
+        checkWeatherForecast();
     }
 
     public static void checkOpenWeatherApi() {
@@ -22,12 +21,18 @@ public class TestMain {
         System.out.println(map.getWeatherForecast("Москва"));
     }
 
+    public static void checkWeatherCom() {
+        WeatherApi map = new WeatherCom();
+        System.out.println(map.getResponseCode());
+        System.out.println(map.getWeatherForecast("Москва"));
+    }
+
     public static void checkWeatherForecast() {
         WeatherForecast forecast = new WeatherForecast();
         List<ForecastObject> responses = forecast.getListOfServices();
         responses.forEach(System.out::println);
 
-        List<ForecastObject> weathers = forecast.getForecast("Moscow");
+        List<ForecastObject> weathers = forecast.getForecast("Екатеринбург");
         weathers.forEach(System.out::println);
     }
 
