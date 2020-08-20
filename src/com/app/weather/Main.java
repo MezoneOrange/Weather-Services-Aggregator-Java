@@ -41,6 +41,13 @@ public class Main {
 
     }
 
+    /**
+     * Asks user to enter a city and returns a result.
+     *
+     * @param reader input stream.
+     * @return string that user was sent.
+     * @throws IOException throw next.
+     */
     private static String inputCity(BufferedReader reader) throws IOException {
         System.out.print("Enter a city: ");
         String city;
