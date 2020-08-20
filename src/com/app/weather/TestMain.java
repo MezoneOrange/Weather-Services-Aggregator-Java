@@ -10,7 +10,7 @@ public class TestMain {
     public static void main(String[] args) {
         List<String> cities = new ArrayList<>(Arrays.asList("Москва", "санкт петербург",
                                                             "miami", "ревда", "екат", "new york"));
-        cities.forEach(TestMain::checkWeatherBit);
+        cities.forEach(TestMain::checkWeatherForecast);
     }
 
     public static void checkOpenWeatherApi(String city) {
