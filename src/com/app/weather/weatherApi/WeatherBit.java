@@ -78,7 +78,7 @@ public class WeatherBit extends WeatherApi {
             responseTemperature = parsedResponse.getDouble("temp");
             responseWeather = parsedResponse.getJSONObject("weather").getString("description");
         } catch (JSONException e) {
-            System.out.println(e.getMessage());
+            // System.out.println(e.getMessage());
             return  new ForecastObject(NAME, 404);
         }
         return new ForecastObject(NAME, responseCode, responseCity, responseTemperature, responseWeather);

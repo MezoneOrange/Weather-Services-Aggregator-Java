@@ -77,7 +77,7 @@ public class OpenWeatherMap extends WeatherApi {
             responseTemperature = parsedResponse.getJSONObject("main").getDouble("temp");
             responseWeather = parsedResponse.getJSONArray("weather").getJSONObject(0).getString("description");
         } catch (JSONException e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
             return  new ForecastObject(NAME, 404);
         }
 

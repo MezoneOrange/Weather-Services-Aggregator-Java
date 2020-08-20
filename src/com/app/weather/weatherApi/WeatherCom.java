@@ -77,7 +77,7 @@ public class WeatherCom extends WeatherApi {
             responseTemperature = parsedResponse.getJSONObject("current").getDouble("temp_c");
             responseWeather = parsedResponse.getJSONObject("current").getJSONObject("condition").getString("text");
         } catch (JSONException e) {
-            System.out.println(e.getMessage());
+            // System.out.println(e.getMessage());
             return  new ForecastObject(NAME, 404);
         }
         return new ForecastObject(NAME, responseCode, responseCity, responseTemperature, responseWeather);

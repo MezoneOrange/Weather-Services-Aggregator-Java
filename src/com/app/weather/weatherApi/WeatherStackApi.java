@@ -77,8 +77,8 @@ public class WeatherStackApi extends WeatherApi {
             responseTemperature = parsedResponse.getJSONObject("current").getDouble("temperature");
             responseWeather = parsedResponse.getJSONObject("current").getJSONArray("weather_descriptions").getString(0);
         } catch (JSONException e) {
-            System.out.println(e.getMessage());
-            return  new ForecastObject(NAME, 404);
+            // System.out.println(e.getMessage());
+            return new ForecastObject(NAME, 404);
         }
         return new ForecastObject(NAME, responseCode, responseCity, responseTemperature, responseWeather);
     }
