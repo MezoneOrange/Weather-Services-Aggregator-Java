@@ -3,6 +3,7 @@ package com.app.weather;
 import com.app.weather.weatherApi.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -14,11 +15,8 @@ public class WeatherForecast {
     /**
      * Creates list of resources by one instance.
      */
-    public WeatherForecast() {
-        resources.add(new OpenWeatherMap());
-        resources.add(new WeatherStackApi());
-        resources.add(new WeatherCom());
-        resources.add(new WeatherBit());
+    public WeatherForecast(WeatherApi... weatherApps) {
+        Collections.addAll(resources, weatherApps);
     }
 
     /**
