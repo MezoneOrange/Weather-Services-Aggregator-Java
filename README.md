@@ -14,7 +14,7 @@ The aggregator uses next resources:
 
 ### WeatherApi abstract class and his inheritors
     
-For each resource created same name class, that based on WeatherApi abstract class. Each resource has same functionality which is sets in the parent class.
+For each resource created same name class, that based on WeatherApi abstract class. Each resource has same functionality which is set in the parent class.
 
 In constructor sets name of resource, template of url and api key.
 Provides next methods:
@@ -60,7 +60,7 @@ The class creates a `WeatherForecast` instance that contains instances of each w
 
 Prints response code of each resource through method `getListOfServices()`.
 
-Creates the stream that read input that would send through the terminal. Asks the user to input a city name and returns weather forecast from each resource if it was found through method `getForecast(String city)`. Asks while user don't send an empty string. When user enters an empty string, stream will be closed and application closed.
+Creates the stream that read input that would send through the terminal. Asks the user to input a city name and returns weather forecast from each resource if it was found through method `getForecast(String city)`. Asks while user don't send an empty string. When user enters an empty string, stream will be closed and application exits.
 
 
 ###### author Dmitry Shelukhin
