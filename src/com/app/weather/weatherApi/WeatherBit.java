@@ -12,6 +12,9 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * weatherbit.io
+ */
 public class WeatherBit extends WeatherApi {
 
     public WeatherBit() {

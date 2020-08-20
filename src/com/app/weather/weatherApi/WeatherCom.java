@@ -12,6 +12,9 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * weatherapi.com
+ */
 public class WeatherCom extends WeatherApi {
 
     public WeatherCom() {

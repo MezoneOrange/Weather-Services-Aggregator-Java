@@ -20,7 +20,7 @@ public class WeatherForecast {
     }
 
     /**
-     * Returns list of resources and their status code.
+     * Returns list of resources that contains their status code and name of resource.
      *
      * @return List<ForecastObject> which includes names of resources and their status code.
      */

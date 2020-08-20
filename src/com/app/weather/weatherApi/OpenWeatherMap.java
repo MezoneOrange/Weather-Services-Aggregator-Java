@@ -12,8 +12,10 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * openweathermap.org
+ */
 public class OpenWeatherMap extends WeatherApi {
-
 
     public OpenWeatherMap() {
         NAME = "openweathermap.org";
@@ -38,12 +40,6 @@ public class OpenWeatherMap extends WeatherApi {
         return new ForecastObject(NAME, responseCode);
     }
 
-    /**
-     * also set longitudes and latitudes by requested
-     *
-     * @param city for query
-     * @return result of request
-     */
     @Override
     public ForecastObject getWeatherForecast(String city) {
         int responseCode;
