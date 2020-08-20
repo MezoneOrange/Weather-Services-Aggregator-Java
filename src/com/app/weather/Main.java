@@ -34,8 +34,17 @@ public class Main {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         while ((city = inputCity(reader)) != null) {
-            if (city.equals("")) break;
-            forecast.getForecast(city).forEach(System.out::println);
+            if (city.equals(""))  {
+                System.out.println("That's all. Have a nice day. Good bye.");
+                break;
+            }
+
+            List<ForecastObject> weathers = forecast.getForecast(city);
+            for (ForecastObject weather : weathers) {
+                if (weather.getRESPONSE() == 200) {
+                    System.out.println(weather);
+                }
+            };
         }
         reader.close();
 
