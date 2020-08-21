@@ -34,16 +34,7 @@ public abstract class WeatherApi {
      * @return ForecastObject which includes name of resource and response code.
      */
     public ForecastObject getResponseCode() {
-        try {
-            URL obj = new URL(String.format(url, apiKey, "London"));
-            HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
-            responseCode = connection.getResponseCode();
-        } catch (MalformedURLException e) {
-            responseCode = 404;
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-            responseCode = 404;
-        }
+        getResponse("London");
 
         return new ForecastObject(NAME, responseCode);
     }
@@ -57,6 +48,7 @@ public abstract class WeatherApi {
 
     /**
      * Returns response from a weather resource by a city that was sent.
+     * Also sets <code>responseCode</code> of that request.
      * @param city that is requested.
      * @return StringBuilder object of data that was returned.
      */

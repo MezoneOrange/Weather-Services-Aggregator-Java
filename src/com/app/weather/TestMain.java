@@ -10,12 +10,12 @@ public class TestMain {
     public static void main(String[] args) {
         List<String> cities = new ArrayList<>(Arrays.asList("Москва", "санкт петербург",
                                                             "miami", "ревда", "екат", "new york"));
-//        checkOpenWeatherApi(cities);
+        checkOpenWeatherApi(cities);
 //        checkWeatherStackApi(cities);
-//        checkWeatherCom(cities);
+        checkWeatherCom(cities);
 //        checkWeatherBit(cities);
 
-        checkWeatherForecast(cities);
+//        checkWeatherForecast(cities);
     }
 
     public static void checkOpenWeatherApi(List<String> cities) {
