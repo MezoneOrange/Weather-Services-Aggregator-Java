@@ -38,13 +38,17 @@ public class Main {
                 System.out.println("That's all. Have a nice day. Good bye.");
                 break;
             }
-
+            int finded = 0;
             List<ForecastObject> weathers = forecast.getForecast(city);
             for (ForecastObject weather : weathers) {
                 if (weather.getRESPONSE() == 200) {
+                    finded++;
                     System.out.println(weather);
                 }
-            };
+            }
+            if (finded == 0) {
+                System.out.println("City has not been found.\n");
+            }
         }
         reader.close();
 
@@ -58,9 +62,11 @@ public class Main {
      * @throws IOException throw next.
      */
     private static String inputCity(BufferedReader reader) throws IOException {
+        System.out.println("Just press Enter if you want to finish.");
         System.out.print("Enter a city: ");
         String city;
         city = reader.readLine();
+        System.out.println();
         return city;
     }
 }
