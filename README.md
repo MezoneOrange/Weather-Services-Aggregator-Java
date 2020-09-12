@@ -5,7 +5,7 @@ The aggregator uses next resources:
 - https://weatherstack.com
 - https://weather.com
 - https://www.weatherbit.io
-    
+
     
     Important!: I strongly recommend to use your API KEY for each resources. You can change it in constructor of each resource's class.
     My keys could not work because some of them has a daily limitations.
@@ -44,19 +44,52 @@ Has overridden method `toString()` that has two options:
 
 The class works with all weather resources at the same time.
 
-Has one field - `List<WeatherApi> resources`
+Has fields:
+    `List<WeatherApi> resources` - contains `WeatherApi` objects that response code was 200.
+    `passedResources` - count of resources that was sent in the constructor
+    `availableResources` - count of resources that was added to `resources`.
 
-The constructor of class takes array of `WeatherApi` objects and adds them to List.
+The constructor of class takes array of `WeatherApi` objects, checks their response code, and adds to `resources`. Also sets `passedResources` and `availableResources` fields.
 
-Has two methods:
+Has four methods:
 1. `getListOfServices()` returns List of `ForecastObject` objects that contains resources' name, and their response code.
 2. `getForecast(String city)` returns List of `ForecastObject` objects that contains weather condition from each resource or, if response code of some resource was not 200, contains only resource' name, and their response code.
+3. `getPassedResources()` returns `passedResources` field.
+4. `getAvailableResources()` returns `availableResources` field.
 
-### Main class
+### GUIVersionMain class (new version)
+
+Graphical User Interface version of programme.
+
+The class creates a `WeatherForecast` instance that contains instances of each weather resource that had response code 200.
+
+Works with Singleton class `WeatherGui`.
+
+### WeatherGui class
+
+Singleton class that contains all realisation of GUI.
+
+GUI contains 3 areas:
+ 
+      1. Upper area implements the accept city's name and sends request to api's.
+          `User inputs a city's name into the text field and either press "Enter" or click by button
+           for that request was sent`
+ 
+      2. Middle area displays result of request that was sent from Upper area.
+         When app just would open, it displays names of resources that is available on the moment of start.
+
+      3. Bottom area displays how many resources is available on the moment of start.
+          `In the time of work the programme, app doesn't restart resources
+           that was not available n the moment of start. If you want to get access
+           to resources that not available, try to restart the programme.`
+
+### ConsoleVersionMain class (old version)
+
+Console version of programme.
 
 Contains realisation when user inputs the city name and application returns a weather forecast from each resource that has found a city.
 
-The class creates a `WeatherForecast` instance that contains instances of each weather resource.
+The class creates a `WeatherForecast` instance that contains instances of each weather resource that had response code 200.
 
 Prints response code of each resource through method `getListOfServices()`.
 

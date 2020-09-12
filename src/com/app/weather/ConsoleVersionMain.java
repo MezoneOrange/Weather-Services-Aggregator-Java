@@ -18,7 +18,7 @@ import java.util.List;
  * If user just press enter that input stream would be closed and exit from the application.
  *
  */
-public class Main {
+public class ConsoleVersionMain {
     public static void main(String[] args) throws IOException {
         WeatherForecast forecast = new WeatherForecast(
                 new OpenWeatherMap(),

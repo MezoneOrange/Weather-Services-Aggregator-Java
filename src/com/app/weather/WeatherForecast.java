@@ -3,7 +3,6 @@ package com.app.weather;
 import com.app.weather.weatherApi.*;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -11,12 +10,24 @@ import java.util.List;
  */
 public class WeatherForecast {
     private List<WeatherApi> resources = new ArrayList<>();
+    private int passedResources;
+    private int availableResources;
 
     /**
      * Creates list of resources by one instance.
+     * Adds services that response code was 200.
+     * Sets fields:
+     *      passedResources - how many resources was passed
+     *      availableResources - how many resources had response code 200 and was added to resources list.
      */
     public WeatherForecast(WeatherApi... weatherApps) {
-        Collections.addAll(resources, weatherApps);
+        passedResources = weatherApps.length;
+        for (WeatherApi app : weatherApps) {
+            if (app.getResponseCode().getRESPONSE() == 200) {
+                resources.add(app);
+            }
+        }
+        availableResources = resources.size();
     }
 
     /**
@@ -44,4 +55,13 @@ public class WeatherForecast {
         }
         return forecast;
     }
+
+    public int getPassedResources() {
+        return passedResources;
+    }
+
+    public int getAvailableResources() {
+        return availableResources;
+    }
+
 }
