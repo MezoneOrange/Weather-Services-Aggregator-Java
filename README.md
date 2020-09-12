@@ -4,8 +4,9 @@ The aggregator uses next resources:
 - https://openweathermap.org
 - https://weatherstack.com
 - https://weather.com
-- https://www.weatherbit.io
+- https://www.weatherbit.io  
 
+#
     
     Important!: I strongly recommend to use your API KEY for each resources. You can change it in constructor of each resource's class.
     My keys could not work because some of them has a daily limitations.
