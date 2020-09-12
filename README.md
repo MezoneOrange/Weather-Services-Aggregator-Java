@@ -13,6 +13,8 @@ The aggregator uses next resources:
     
     Important!: Because each weather resource returns JSON object by request application uses java-json.jar library. The repository contains library in root folder.
 
+#
+
 ### WeatherApi abstract class and his inheritors
     
 For each resource created same name class, that based on WeatherApi abstract class. Each resource has same functionality which is set in the parent class.
@@ -23,6 +25,7 @@ Provides next methods:
 - `getWeatherForecast(String city)` has the `String` input parameter - city name. Returns a current weather forecast for city, that would be sent. Returns - name of resource, response code, name of city, his temperature, and weather condition. If city would not find in the resource's database, that returns name of resource and response code. Other fields would have default values. Uses java-json.jar library for parsing JSON object that resource returns.
 
 Both methods return ForecastObject object.
+#
 
 ### ForecastObject class
 
@@ -40,6 +43,7 @@ The object has two type of constructors:
 Has overridden method `toString()` that has two options:
 1. If has been used the constructor with two parameters, that makes the `String` with name of resource and response code.
 2. If has been used the constructor with five parameters, that makes the `String` with current weather forecast of requested city.
+#
 
 ### WeatherForecast class
 
@@ -57,6 +61,7 @@ Has four methods:
 2. `getForecast(String city)` returns List of `ForecastObject` objects that contains weather condition from each resource or, if response code of some resource was not 200, contains only resource' name, and their response code.
 3. `getPassedResources()` returns `passedResources` field.
 4. `getAvailableResources()` returns `availableResources` field.
+#
 
 ### GUIVersionMain class (new version)
 
@@ -84,6 +89,8 @@ GUI contains 3 areas:
            that was not available n the moment of start. If you want to get access
            to resources that not available, try to restart the programme.`
 
+#
+
 ### ConsoleVersionMain class (old version)
 
 Console version of programme.
@@ -96,5 +103,6 @@ Prints response code of each resource through method `getListOfServices()`.
 
 Creates the stream that read input that would send through the terminal. Asks the user to input a city name and returns weather forecast from each resource if it was found through method `getForecast(String city)`. Asks while user don't send an empty string. When user enters an empty string, stream will be closed and application exits.
 
-
+#
+#
 ###### author Dmitry Shelukhin
