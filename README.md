@@ -7,6 +7,9 @@ The aggregator uses next resources:
 - https://www.weatherbit.io  
 
 #
+weatherApp.jar - executable .jar archive GUI version of programme.
+
+#
     
     Important!: I strongly recommend to use your API KEY for each resources. You can change it in constructor of each resource's class.
     My keys could not work because some of them has a daily limitations.
